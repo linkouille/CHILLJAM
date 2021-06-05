@@ -9,10 +9,9 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
     [SerializeField] private float radius;
+    [SerializeField] private float radiusMax;
 
     private Rigidbody2D rb;
-    private float randFact;
-    private Vector3 wanderingPos;
 
     private void Awake()
     {
@@ -61,35 +60,20 @@ public class Projectile : MonoBehaviour
     {
         Vector3 dirToTarget = (target.position - transform.position).normalized;
 
-        if (Vector3.Distance(transform.position,target.position) > radius + randFact)
+        if (Vector3.Distance(transform.position,target.position) > radius)
         {// Not near Enough
             transform.Translate(dirToTarget * speed * Time.deltaTime);
-
-            rb.gravityScale = (target.GetComponent<PlayerMovement>() && target.GetComponent<PlayerMovement>().OnGrounded()) ? 1 : 0;
-
-            if (Mathf.Abs(transform.position.x - target.position.x) < radius && Mathf.Abs(transform.position.y - target.position.y) > radius)
-            {
-                rb.gravityScale = 0;
-            }
         }
-        else
-        {// Near enough
-            if(Vector3.Distance(transform.position, wanderingPos) > 0.1f)
-            {// Wandering in the radius
-                Vector3 dirWandering = (wanderingPos - transform.position).normalized;
-                transform.Translate(dirWandering * speed/2 * Time.deltaTime);
-            }
-            else { // Choose a new Wandering objective point            
-                if(rb.gravityScale > 0)
-                {
-                    wanderingPos = transform.position + Vector3.right * Random.Range(-radius, radius);
-                }
-                else
-                {
-                    wanderingPos = transform.position + Vector3.right * Random.Range(-radius, radius) + Vector3.up * Random.Range(-radius, radius);
-                }
-            }
+        if (Vector3.Distance(transform.position, target.position) > radiusMax)
+        {// Too far
+            TeleportToTarget();
         }
+        rb.gravityScale = transform.position.y - (target.position.y - 0.1f) < 0 ? 0 : 0.25f;
+    }
+
+    private void TeleportToTarget()
+    {
+        transform.position = target.position + Vector3.up * Random.Range(-radius, radius) + Vector3.right * Random.Range(-radius, radius);
     }
 
     public ProjectileMode GetMode()
@@ -122,9 +106,13 @@ public class Projectile : MonoBehaviour
         mode = ProjectileMode.Follow;
         rb.freezeRotation = true;
         gameObject.layer = LayerMask.NameToLayer("IgnorePlayer");
-        this.target = target;
-        this.randFact = Random.Range(-radius / 2, radius / 2);
+        SetTarget(target);
+        rb.gravityScale = 0.25f;
 
+    }
+    public void SetTarget(Transform target)
+    {
+        this.target = target;
     }
 
 }

@@ -87,7 +87,8 @@ MonoBehaviour:
   target: {fileID: 0}
   speed: 5
   jumpForce: 10
-  radius: 1
+  radius: 0.7
+  radiusMax: 4
 --- !u!1 &6263224905761118839
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,7 +161,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -9095717837082945937, guid: 34587324d412940a79d530020c957dc0, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5660378, g: 0.43599516, b: 0.17888929, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

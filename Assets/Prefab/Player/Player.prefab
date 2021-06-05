@@ -137,7 +137,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2481239574801002020}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.7, z: 0}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2481239573890906622}
@@ -229,6 +229,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  jumpForce: 6
+  maxVel: 8
+  groundDist: 0.1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &2481239575354622376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,5 +250,6 @@ MonoBehaviour:
   cursorTransform: {fileID: 0}
   projectile: {fileID: 8252720867534184381, guid: c2a2dc7206877cc40871bc9e6e6b2411, type: 3}
   spawnPoint: {fileID: 2481239574801002021}
-  impulseForce: 8
+  impulseForce: 10
   pivot: {fileID: 2481239573890906622}
+  amo: []

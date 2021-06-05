@@ -73,7 +73,7 @@ public class Projectile : MonoBehaviour
 
     private void TeleportToTarget()
     {
-        transform.position = target.position + Vector3.up * Random.Range(-radius, radius) + Vector3.right * Random.Range(-radius, radius);
+        transform.position = Vector3.Slerp(transform.position,target.position + Vector3.up * Random.Range(-radius, radius) + Vector3.right * Random.Range(-radius, radius),0.1f);
     }
 
     public ProjectileMode GetMode()

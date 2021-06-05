@@ -10,7 +10,6 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float jumpForce;
     [SerializeField] private float radius;
     [SerializeField] private float radiusMax;
-
     [SerializeField] private float groundDist = 0.1f;
     [SerializeField] private LayerMask groundLayer;
 
@@ -120,6 +119,13 @@ public class Projectile : MonoBehaviour
     public bool OnGrounded()
     {
         return Physics2D.CircleCast(transform.position + GetComponent<Collider2D>().bounds.extents.y * Vector3.down, groundDist, Vector2.zero, 0, groundLayer);
+    }
+
+    public Vector3 GetVel()
+    {
+        if (target != null && Vector3.Distance(transform.position, target.position) > radius)
+            return (target.position - transform.position).normalized;
+        return Vector3.zero;
     }
 }
 

@@ -19,7 +19,7 @@ public class AnimProjectiile : MonoBehaviour
     private void Update()
     {
         anim.SetBool("Grounded", p.OnGrounded());
-        anim.SetFloat("XVelocity", p.GetComponent<Rigidbody2D>().velocity.x);
+        anim.SetFloat("XVelocity", p.GetVel().x);
 
         if(p.GetMode() == ProjectileMode.Follow && !setFollow)
         {
@@ -29,6 +29,7 @@ public class AnimProjectiile : MonoBehaviour
         }else if (p.GetMode() == ProjectileMode.Launched && !setLaunch)
         {
             anim.SetTrigger("Launch");
+            Debug.Log("LAUNCH");
             setFollow = false;
             setLaunch = true;
         }

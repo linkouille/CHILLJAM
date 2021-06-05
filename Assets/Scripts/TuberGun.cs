@@ -41,9 +41,15 @@ public class TuberGun : MonoBehaviour
         {
             pM.Impulse(dir, impulseForce);
             Transform p = Instantiate(projectile,spawnPoint.position,toDir);
-            p.gameObject.name = amo[amo.Count - 1].gameObject.name;
-            Destroy(amo[amo.Count - 1].gameObject);
-            amo.Remove(amo[amo.Count - 1]);
+            p.gameObject.name = amo[0].gameObject.name;
+            Destroy(amo[0].gameObject);
+            amo.Remove(amo[0]);
+
+            if(amo.Count > 0)
+            {
+                amo[0].GetComponent<Projectile>().SetTarget(transform);
+                amo[0].position = spawnPoint.position;
+            }
 
             p.GetComponent<Projectile>().SetModeToLaunched();
             p.GetComponent<Rigidbody2D>().AddForce(-dir * impulseForce, ForceMode2D.Impulse);
@@ -58,8 +64,9 @@ public class TuberGun : MonoBehaviour
             Projectile p = collision.collider.GetComponent<Projectile>();
             if(p.GetMode() == ProjectileMode.Idle)
             {
+                Transform target = (amo.Count == 0) ? transform : amo[amo.Count - 1];
                 amo.Add(p.transform);
-                p.SetModeToFollow(transform);
+                p.SetModeToFollow(target);
             }
         }
     }

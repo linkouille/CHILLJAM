@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7235019493819079045}
   - component: {fileID: 6213445575078593369}
   - component: {fileID: -6256877544163207847}
+  - component: {fileID: 8348726381615785170}
+  - component: {fileID: 6159587560810897779}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Projectile
@@ -48,7 +50,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.2, y: 0.4}
+  m_Size: {x: 0.3, y: 0.6}
   m_Direction: 0
 --- !u!50 &6213445575078593369
 Rigidbody2D:
@@ -70,7 +72,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &-6256877544163207847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,6 +86,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mode: 0
+  target: {fileID: 0}
+  speed: 5
+  jumpForce: 10
+  radius: 0.7
+  radiusMax: 4
+  groundDist: 0.1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!95 &8348726381615785170
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149647849834535389}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a89c386978a03c94ebbe7b1af5a72282, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6159587560810897779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149647849834535389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bbec87011cae5f45b06a63ecf253628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6263224905761118839
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,7 +137,7 @@ GameObject:
   - component: {fileID: 3045537929492340742}
   - component: {fileID: 7509269634695180641}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,7 +152,7 @@ Transform:
   m_GameObject: {fileID: 6263224905761118839}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 8252720867534184381}
   m_RootOrder: 0
@@ -155,7 +197,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 34587324d412940a79d530020c957dc0, type: 3}
+  m_Sprite: {fileID: -5588027889583478202, guid: 89712dc5c7fa6924a91327de39f0c704, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

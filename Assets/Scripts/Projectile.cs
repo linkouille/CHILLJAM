@@ -37,10 +37,6 @@ public class Projectile : MonoBehaviour
         switch (mode)
         {
             case ProjectileMode.Idle:
-                if (collision.collider.tag == "Player")
-                {
-                    mode = ProjectileMode.Follow;
-                }
                 break;
             case ProjectileMode.Launched:
                 if(collision.collider.tag == "Plateform")
@@ -48,11 +44,14 @@ public class Projectile : MonoBehaviour
                     SetModeToIdle();
                 }
                 break;
-            case ProjectileMode.Follow:
-                break;
             default:
                 break;
         }
+    }
+
+    public ProjectileMode GetMode()
+    {
+        return mode;
     }
 
     public void ChangeMode(ProjectileMode nm)
@@ -65,12 +64,21 @@ public class Projectile : MonoBehaviour
         mode = ProjectileMode.Idle;
         transform.rotation = Quaternion.identity;
         rb.freezeRotation = true;
+        this.GetComponent<Collider2D>().enabled = true;
     }
 
     public void SetModeToLaunched()
     {
         mode = ProjectileMode.Launched;
         rb.freezeRotation = false;
+        this.GetComponent<Collider2D>().enabled = true;
+    }
+
+    public void SetModeToFollow()
+    {
+        mode = ProjectileMode.Follow;
+        rb.freezeRotation = false;
+        this.GetComponent<Collider2D>().enabled = false;
 
     }
 

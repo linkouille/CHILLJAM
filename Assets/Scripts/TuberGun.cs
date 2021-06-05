@@ -11,6 +11,8 @@ public class TuberGun : MonoBehaviour
 
     [SerializeField] private Transform pivot;
 
+    [SerializeField] private List<Transform> amo;
+
 
     private PlayerMovement pM;
     private Vector3 dir;
@@ -36,12 +38,13 @@ public class TuberGun : MonoBehaviour
 
         Debug.DrawLine(transform.position, mouseWorldPos, Color.red);
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Fire1"))
         {
             pM.Impulse(dir, impulseForce);
             Transform p = Instantiate(projectile,spawnPoint.position,toDir);
 
             p.GetComponent<Rigidbody2D>().AddForce(-dir.normalized * impulseForce, ForceMode2D.Impulse);
+            p.GetComponent<Projectile>().SetModeToLaunched();
             // Destroy(p.gameObject, 10);
         }
     }

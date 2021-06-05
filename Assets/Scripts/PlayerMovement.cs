@@ -33,7 +33,6 @@ public class PlayerMovement : MonoBehaviour
     {
         transform.Translate(input * speed * Time.deltaTime);
         rb.velocity = Mathf.Clamp(rb.velocity.y, -maxVel, maxVel) * Vector3.up + Mathf.Clamp(rb.velocity.x, -maxVel, maxVel) * Vector3.right;
-        Debug.Log(rb.velocity);
     }
 
     public void Impulse(Vector3 dir, float amount)

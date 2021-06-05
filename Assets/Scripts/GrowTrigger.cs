@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GrowTrigger : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class GrowTrigger : MonoBehaviour
 
     public MovableObject movableObject;
     public List<Projectile> potatoesPlanted;
+    public Text indicator;
 
     // Update is called once per frame
     void Update()
@@ -17,6 +19,8 @@ public class GrowTrigger : MonoBehaviour
         {
             movableObject.activateMovement();
         }
+
+        indicator.text = potatoesPlaced  + "/" + potatoesRequired;
     }
 
     public void recallPotatoes()
@@ -38,7 +42,7 @@ public class GrowTrigger : MonoBehaviour
         {
             potatoesPlaced++;
             potatoesPlanted.Add(collision.GetComponent<Projectile>());
-            collision.GetComponent<Projectile>().ChangeMode(ProjectileMode.Planted);
+            collision.GetComponent<Projectile>().SetModeToPlanted();
         }
     }
 }

@@ -28,6 +28,10 @@ public class PlayerMovement : MonoBehaviour
         {
             Impulse(Vector3.up, jumpForce);
         }
+        if (Input.GetKeyDown("r"))
+        {
+            recallPotatoes();
+        }
     }
     private void FixedUpdate()
     {
@@ -38,6 +42,18 @@ public class PlayerMovement : MonoBehaviour
     public void Impulse(Vector3 dir, float amount)
     {
         rb.AddForce(dir.normalized * amount, ForceMode2D.Impulse);
+    }
+
+    public void recallPotatoes()
+    {
+        Projectile[] allProjectiles = FindObjectsOfType<Projectile>();
+        for (int i = 0; i < allProjectiles.Length; i++)
+        {
+            if(allProjectiles[i].firstPickup && allProjectiles[i].GetMode() != ProjectileMode.Launched && allProjectiles[i].GetMode() != ProjectileMode.Follow)
+            {
+                TuberGun.current.addPotatoesToAmmos(allProjectiles[i]);
+            }
+        }
     }
 
     public bool OnGrounded()

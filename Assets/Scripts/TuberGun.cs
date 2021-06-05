@@ -18,8 +18,11 @@ public class TuberGun : MonoBehaviour
     private Quaternion toDir;
     private Camera mainCam;
 
+    public static TuberGun current;
+
     private void Awake()
     {
+        current = this;
         pM = GetComponent<PlayerMovement>();
         mainCam = Camera.main.GetComponent<Camera>();
     }
@@ -42,6 +45,7 @@ public class TuberGun : MonoBehaviour
             pM.Impulse(dir, impulseForce);
             Transform p = Instantiate(projectile,spawnPoint.position,toDir);
             p.gameObject.name = amo[0].gameObject.name;
+            p.gameObject.GetComponent<Projectile>().firstPickup = true;
             Destroy(amo[0].gameObject);
             amo.Remove(amo[0]);
 
@@ -64,10 +68,15 @@ public class TuberGun : MonoBehaviour
             Projectile p = collision.collider.GetComponent<Projectile>();
             if(p.GetMode() == ProjectileMode.Idle)
             {
-                Transform target = (amo.Count == 0) ? transform : amo[amo.Count - 1];
-                amo.Add(p.transform);
-                p.SetModeToFollow(target);
+                addPotatoesToAmmos(p);
             }
         }
+    }
+
+    public void addPotatoesToAmmos(Projectile p)
+    {
+        Transform target = (amo.Count == 0) ? transform : amo[amo.Count - 1];
+        amo.Add(p.transform);
+        p.SetModeToFollow(target);
     }
 }

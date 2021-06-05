@@ -6,12 +6,14 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] private ProjectileMode mode;
     [SerializeField] private Transform target;
+    [SerializeField] public Transform follower;
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
     [SerializeField] private float radius;
     [SerializeField] private float radiusMax;
     [SerializeField] private float groundDist = 0.1f;
     [SerializeField] private LayerMask groundLayer;
+    public bool firstPickup;
 
     private Rigidbody2D rb;
 
@@ -60,6 +62,7 @@ public class Projectile : MonoBehaviour
 
     private void FollowTarget()
     {
+        firstPickup = true;
         Vector3 dirToTarget = (target.position - transform.position).normalized;
 
         if (Vector3.Distance(transform.position,target.position) > radius)
@@ -110,12 +113,21 @@ public class Projectile : MonoBehaviour
         gameObject.layer = LayerMask.NameToLayer("IgnorePlayer");
         SetTarget(target);
         rb.gravityScale = 0.25f;
-
     }
+
+    public void SetModeToPlanted()
+    {
+        mode = ProjectileMode.Planted;
+        rb.freezeRotation = true;
+        rb.velocity = new Vector2(0,0);
+        gameObject.layer = LayerMask.NameToLayer("IgnorePlayer");
+    }
+
     public void SetTarget(Transform target)
     {
         this.target = target;
     }
+
     public bool OnGrounded()
     {
         return Physics2D.CircleCast(transform.position + GetComponent<Collider2D>().bounds.extents.y * Vector3.down, groundDist, Vector2.zero, 0, groundLayer);

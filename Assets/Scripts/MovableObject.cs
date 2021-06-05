@@ -21,4 +21,14 @@ public class MovableObject : MonoBehaviour
             LeanTween.moveY(gameObject, transform.position.y + movementOffset.y, timeToMove).setEaseLinear();
         }
     }
+
+    public void reverseMovement()
+    {
+        if (activated)
+        {
+            activated = false;
+            LeanTween.moveX(gameObject, transform.position.x - movementOffset.x, timeToMove).setEaseLinear();
+            LeanTween.moveY(gameObject, transform.position.y - movementOffset.y, timeToMove).setEaseLinear();
+        }
+    }
 }

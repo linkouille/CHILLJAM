@@ -29,7 +29,6 @@ public class AnimProjectiile : MonoBehaviour
         }else if (p.GetMode() == ProjectileMode.Launched && !setLaunch)
         {
             anim.SetTrigger("Launch");
-            Debug.Log("LAUNCH");
             setFollow = false;
             setLaunch = true;
         }

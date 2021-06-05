@@ -65,7 +65,7 @@ public class TuberGun : MonoBehaviour
             if(p.GetMode() == ProjectileMode.Idle)
             {
                 amo.Add(p.transform);
-                p.SetModeToFollow();
+                p.SetModeToFollow(transform);
             }
         }
     }

@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
 {
 
     [SerializeField] private ProjectileMode mode;
+    [SerializeField] private Transform target;
 
     private Rigidbody2D rb;
 
@@ -74,7 +75,7 @@ public class Projectile : MonoBehaviour
         this.GetComponent<Collider2D>().enabled = true;
     }
 
-    public void SetModeToFollow()
+    public void SetModeToFollow(Transform target)
     {
         mode = ProjectileMode.Follow;
         rb.freezeRotation = false;

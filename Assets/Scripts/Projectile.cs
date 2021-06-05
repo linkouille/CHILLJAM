@@ -65,21 +65,21 @@ public class Projectile : MonoBehaviour
         mode = ProjectileMode.Idle;
         transform.rotation = Quaternion.identity;
         rb.freezeRotation = true;
-        this.GetComponent<Collider2D>().enabled = true;
     }
 
     public void SetModeToLaunched()
     {
         mode = ProjectileMode.Launched;
         rb.freezeRotation = false;
-        this.GetComponent<Collider2D>().enabled = true;
+        gameObject.layer = LayerMask.NameToLayer("Default");
     }
 
     public void SetModeToFollow(Transform target)
     {
         mode = ProjectileMode.Follow;
         rb.freezeRotation = false;
-        this.GetComponent<Collider2D>().enabled = false;
+        gameObject.layer = LayerMask.NameToLayer("IgnorePlayer");
+        this.target = target;
 
     }
 

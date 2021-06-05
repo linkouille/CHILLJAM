@@ -37,12 +37,6 @@ public class TuberGun : MonoBehaviour
 
         Debug.DrawLine(transform.position, mouseWorldPos, Color.red);
 
-        for (int i = 0; i < amo.Count; i++)
-        {
-            amo[i].position = transform.position + Vector3.up * 0.7f * (i+1);
-        }
-        Debug.DrawRay(spawnPoint.position, -dir * impulseForce, Color.cyan);
-
         if (Input.GetButtonDown("Fire1") && amo.Count > 0)
         {
             pM.Impulse(dir, impulseForce);

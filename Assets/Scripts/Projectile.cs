@@ -133,5 +133,6 @@ public enum ProjectileMode
 {
     Idle,
     Launched,
-    Follow
+    Follow, 
+    Planted
 }

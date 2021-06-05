@@ -8,12 +8,7 @@ public class GrowTrigger : MonoBehaviour
     public int potatoesPlaced;
 
     public MovableObject movableObject;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public List<Projectile> potatoesPlanted;
 
     // Update is called once per frame
     void Update()
@@ -24,13 +19,26 @@ public class GrowTrigger : MonoBehaviour
         }
     }
 
+    public void recallPotatoes()
+    {
+        if(potatoesPlaced > 0)
+        {
+            for (int i = 0; i < potatoesPlanted.Count; i++)
+            {
+                potatoesPlanted[i].ChangeMode(ProjectileMode.Follow);
+            }
+            potatoesPlaced = 0;
+            movableObject.reverseMovement();
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag.Equals("Potatoe"))
+        if(collision.tag.Equals("Projectile"))
         {
             potatoesPlaced++;
-
-            //Consume potato
+            potatoesPlanted.Add(collision.GetComponent<Projectile>());
+            collision.GetComponent<Projectile>().ChangeMode(ProjectileMode.Planted);
         }
     }
 }

@@ -17,14 +17,17 @@ public class TuberGun : MonoBehaviour
     private Vector3 dir;
     private Quaternion toDir;
     private Camera mainCam;
+    private SoundPlayer sP;
 
     public static TuberGun current;
+
 
     private void Awake()
     {
         current = this;
         pM = GetComponent<PlayerMovement>();
         mainCam = Camera.main.GetComponent<Camera>();
+        sP = GetComponent<SoundPlayer>();
     }
 
     private void Update()
@@ -49,6 +52,8 @@ public class TuberGun : MonoBehaviour
             Destroy(amo[0].gameObject);
             amo.Remove(amo[0]);
 
+            sP.PlayShot();
+
             if(amo.Count > 0)
             {
                 amo[0].GetComponent<Projectile>().SetTarget(transform);
@@ -68,12 +73,12 @@ public class TuberGun : MonoBehaviour
             Projectile p = collision.collider.GetComponent<Projectile>();
             if(p.GetMode() == ProjectileMode.Idle)
             {
-                addPotatoesToAmmos(p);
+                addPotatoesToAmmos(p,false);
             }
         }
     }
 
-    public void addPotatoesToAmmos(Projectile p)
+    public void addPotatoesToAmmos(Projectile p, bool recal)
     {
         if(p != null)
         {

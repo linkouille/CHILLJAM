@@ -47,6 +47,12 @@ TextureImporter:
   - first:
       213: -4537748351098870028
     second: Potatoes_16
+  - first:
+      213: 7827941828544421432
+    second: Potatoes_0
+  - first:
+      213: -3717712519039896312
+    second: Potatoes_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -175,10 +181,10 @@ TextureImporter:
       name: Potatoes_1
       rect:
         serializedVersion: 2
-        x: 808
-        y: 17
-        width: 44
-        height: 100
+        x: 79
+        y: 0
+        width: 79
+        height: 124
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,10 +202,10 @@ TextureImporter:
       name: Potatoes_2
       rect:
         serializedVersion: 2
-        x: 891
-        y: 17
-        width: 44
-        height: 100
+        x: 158
+        y: 0
+        width: 79
+        height: 124
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -217,10 +223,10 @@ TextureImporter:
       name: Potatoes_4
       rect:
         serializedVersion: 2
-        x: 83
-        y: 11
-        width: 73
-        height: 113
+        x: 316
+        y: 0
+        width: 79
+        height: 124
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,10 +244,10 @@ TextureImporter:
       name: Potatoes_5
       rect:
         serializedVersion: 2
-        x: 177
-        y: 11
-        width: 60
-        height: 95
+        x: 395
+        y: 0
+        width: 79
+        height: 124
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -259,10 +265,10 @@ TextureImporter:
       name: Potatoes_6
       rect:
         serializedVersion: 2
-        x: 256
-        y: 11
-        width: 60
-        height: 95
+        x: 474
+        y: 0
+        width: 79
+        height: 124
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -280,10 +286,10 @@ TextureImporter:
       name: Potatoes_7
       rect:
         serializedVersion: 2
-        x: 335
+        x: 553
         y: 0
-        width: 45
-        height: 96
+        width: 79
+        height: 124
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -301,10 +307,10 @@ TextureImporter:
       name: Potatoes_8
       rect:
         serializedVersion: 2
-        x: 562
-        y: 1
-        width: 62
-        height: 98
+        x: 632
+        y: 0
+        width: 79
+        height: 124
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -322,10 +328,10 @@ TextureImporter:
       name: Potatoes_9
       rect:
         serializedVersion: 2
-        x: 725
-        y: 1
-        width: 62
-        height: 98
+        x: 711
+        y: 0
+        width: 79
+        height: 124
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -343,10 +349,10 @@ TextureImporter:
       name: Potatoes_10
       rect:
         serializedVersion: 2
-        x: 964
-        y: 27
-        width: 50
-        height: 78
+        x: 790
+        y: 0
+        width: 79
+        height: 124
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -364,10 +370,10 @@ TextureImporter:
       name: Potatoes_11
       rect:
         serializedVersion: 2
-        x: 1045
-        y: 27
-        width: 50
-        height: 78
+        x: 869
+        y: 0
+        width: 79
+        height: 124
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -385,10 +391,10 @@ TextureImporter:
       name: Potatoes_12
       rect:
         serializedVersion: 2
-        x: 1123
+        x: 948
         y: 0
-        width: 45
-        height: 96
+        width: 79
+        height: 124
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -406,10 +412,10 @@ TextureImporter:
       name: Potatoes_13
       rect:
         serializedVersion: 2
-        x: 11
+        x: 1027
         y: 0
-        width: 51
-        height: 94
+        width: 79
+        height: 124
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -427,10 +433,10 @@ TextureImporter:
       name: Potatoes_14
       rect:
         serializedVersion: 2
-        x: 412
+        x: 1106
         y: 0
-        width: 46
-        height: 83
+        width: 79
+        height: 124
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -445,13 +451,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Potatoes_15
+      name: Potatoes_0
       rect:
         serializedVersion: 2
-        x: 474
-        y: 1
-        width: 70
-        height: 94
+        x: 0
+        y: 0
+        width: 79
+        height: 124
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -459,20 +465,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 675a6c587c0084b70800000000000000
-      internalID: 8883351121931183478
+      spriteID: 83edfcc6e9f62ac60800000000000000
+      internalID: 7827941828544421432
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Potatoes_16
+      name: Potatoes_3
       rect:
         serializedVersion: 2
-        x: 641
-        y: 1
-        width: 70
-        height: 94
+        x: 237
+        y: 0
+        width: 79
+        height: 124
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -480,8 +486,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f623acaaeda601c0800000000000000
-      internalID: -4537748351098870028
+      spriteID: 805ba954928086cc0800000000000000
+      internalID: -3717712519039896312
       vertices: []
       indices: 
       edges: []

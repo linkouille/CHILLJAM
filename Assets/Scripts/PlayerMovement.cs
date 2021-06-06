@@ -15,9 +15,12 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 input;
 
+    private SoundPlayer sP;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        sP = GetComponent<SoundPlayer>();
     }
 
     private void Update()
@@ -28,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Impulse(Vector3.up, jumpForce);
         }
-        if (Input.GetKeyDown("r"))
+        if (Input.GetKeyDown("r") && OnGrounded())
         {
             recallPotatoes();
         }
@@ -46,12 +49,13 @@ public class PlayerMovement : MonoBehaviour
 
     public void recallPotatoes()
     {
+        sP.PlayRecall();
         Projectile[] allProjectiles = FindObjectsOfType<Projectile>();
         for (int i = 0; i < allProjectiles.Length; i++)
         {
             if(allProjectiles[i].firstPickup && allProjectiles[i].GetMode() == ProjectileMode.Idle)
             {
-                TuberGun.current.addPotatoesToAmmos(allProjectiles[i]);
+                TuberGun.current.addPotatoesToAmmos(allProjectiles[i],true);
             }
         }
 

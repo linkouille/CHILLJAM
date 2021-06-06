@@ -13,6 +13,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float radiusMax;
     [SerializeField] private float groundDist = 0.1f;
     [SerializeField] private LayerMask groundLayer;
+
     public bool firstPickup;
 
     private Rigidbody2D rb;
@@ -117,13 +118,16 @@ public class Projectile : MonoBehaviour
         rb.gravityScale = 1;
     }
 
-    public void SetModeToFollow(Transform target)
+    public void SetModeToFollow(Transform target,bool recal)
     {
-        sP.PlaySound(ProjectileSound.Recup);
+        if(!recal)
+            sP.PlaySound(ProjectileSound.Recup);
         mode = ProjectileMode.Follow;
         rb.freezeRotation = true;
         gameObject.layer = LayerMask.NameToLayer("IgnorePlayer");
         SetTarget(target);
+        transform.rotation = Quaternion.identity;
+        transform.position = target.position;
         rb.gravityScale = 0.25f;
         StartCoroutine(RandomIdleSound());
     }

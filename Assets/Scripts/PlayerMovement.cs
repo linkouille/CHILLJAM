@@ -15,9 +15,12 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 input;
 
+    private SoundPlayer sP;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        sP = GetComponent<SoundPlayer>();
     }
 
     private void Update()
@@ -46,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void recallPotatoes()
     {
+        sP.PlayRecall();
         Projectile[] allProjectiles = FindObjectsOfType<Projectile>();
         for (int i = 0; i < allProjectiles.Length; i++)
         {

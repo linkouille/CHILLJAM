@@ -124,6 +124,8 @@ public class Projectile : MonoBehaviour
         rb.freezeRotation = true;
         gameObject.layer = LayerMask.NameToLayer("IgnorePlayer");
         SetTarget(target);
+        transform.rotation = Quaternion.identity;
+        transform.position = target.position;
         rb.gravityScale = 0.25f;
         StartCoroutine(RandomIdleSound());
     }

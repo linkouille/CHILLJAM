@@ -17,6 +17,7 @@ public class SoundProjectile : MonoBehaviour
     public void PlaySound(int id)
     {
         aS.clip = sounds[id];
+        aS.pitch = 1 + Random.Range(-0.2f, 0.2f);
         aS.Play();
     }
 

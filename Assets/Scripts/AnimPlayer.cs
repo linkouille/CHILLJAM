@@ -34,7 +34,7 @@ public class AnimPlayer : MonoBehaviour
         }
         if (Input.GetButton("Fire1") && tG.IsTuberGunLoaded())
         {
-            // animG.SetTrigger("Shoot");
+            anim.SetTrigger("Shoot");
             animG.Play("Shoot");
         }
     }

@@ -30,7 +30,7 @@ public class GrowTrigger : MonoBehaviour
             potatoesPlaced = 0;
             for (int i = 0; i < potatoesPlanted.Count; i++)
             {
-                TuberGun.current.addPotatoesToAmmos(potatoesPlanted[i],true);
+                TuberGun.current.addPotatoesToAmmos(potatoesPlanted[i], true);
             }
 
             movableObject.reverseMovement();

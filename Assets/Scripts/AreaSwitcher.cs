@@ -27,12 +27,12 @@ public class AreaSwitcher : MonoBehaviour
             if (confiner.m_BoundingShape2D == col1)
             {
                 confiner.m_BoundingShape2D = col2;
-                cinemachineVirtualCamera.m_Lens.OrthographicSize = actualAreaCameraSize;
+                cinemachineVirtualCamera.m_Lens.OrthographicSize = nextAreaCameraSize;
             }
             else if (confiner.m_BoundingShape2D == col2)
             {
                 confiner.m_BoundingShape2D = col1;
-                cinemachineVirtualCamera.m_Lens.OrthographicSize = nextAreaCameraSize;
+                cinemachineVirtualCamera.m_Lens.OrthographicSize = actualAreaCameraSize;
             }
 
             if (oneWayUse)

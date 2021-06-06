@@ -79,4 +79,14 @@ public class TuberGun : MonoBehaviour
         amo.Add(p.transform);
         p.SetModeToFollow(target);
     }
+
+    public bool IsTuberGunLoaded()
+    {
+        return amo.Count > 0;
+    }
+
+    public Vector3 GetDir()
+    {
+        return this.dir;
+    }
 }

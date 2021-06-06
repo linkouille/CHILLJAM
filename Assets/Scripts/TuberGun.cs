@@ -84,7 +84,7 @@ public class TuberGun : MonoBehaviour
         {
             Transform target = (amo.Count == 0) ? transform : amo[amo.Count - 1];
             amo.Add(p.transform);
-            p.SetModeToFollow(target);
+            p.SetModeToFollow(target, recal);
         }
     }
 

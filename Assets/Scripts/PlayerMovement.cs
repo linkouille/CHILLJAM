@@ -58,6 +58,12 @@ public class PlayerMovement : MonoBehaviour
                 TuberGun.current.addPotatoesToAmmos(allProjectiles[i],true);
             }
         }
+
+        GrowTrigger[] growTriggers = FindObjectsOfType<GrowTrigger>();
+        for (int i = 0; i < growTriggers.Length; i++)
+        {
+            growTriggers[i].recallPotatoes();
+        }
     }
 
     public bool OnGrounded()

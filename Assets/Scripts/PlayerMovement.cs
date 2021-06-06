@@ -60,4 +60,9 @@ public class PlayerMovement : MonoBehaviour
     {
         return Physics2D.CircleCast(transform.position + GetComponent<CircleCollider2D>().radius * Vector3.down, groundDist, Vector2.zero, 0, groundLayer);
     }
+
+    public Vector3 GetVel()
+    {
+        return input;
+    }
 }

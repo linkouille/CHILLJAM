@@ -11,16 +11,17 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float jumpForce;
     [SerializeField] private float radius;
     [SerializeField] private float radiusMax;
-
     [SerializeField] private float groundDist = 0.1f;
     [SerializeField] private LayerMask groundLayer;
     public bool firstPickup;
 
     private Rigidbody2D rb;
+    private SoundProjectile sP;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        sP = GetComponent<SoundProjectile>();
     }
 
     private void Update()
@@ -32,7 +33,6 @@ public class Projectile : MonoBehaviour
             case ProjectileMode.Launched:
                 Vector3 normVel = rb.velocity.normalized; 
                 transform.rotation = Quaternion.AngleAxis(Mathf.Atan2(normVel.y, normVel.x) * Mathf.Rad2Deg + 90f, Vector3.forward);
-
                 break;
             case ProjectileMode.Follow:
 
@@ -82,6 +82,15 @@ public class Projectile : MonoBehaviour
         transform.position = Vector3.Slerp(transform.position,target.position + Vector3.up * Random.Range(-radius, radius) + Vector3.right * Random.Range(-radius, radius),0.1f);
     }
 
+    private IEnumerator RandomIdleSound()
+    {
+        while(mode == ProjectileMode.Follow)
+        {
+            yield return new WaitForSeconds(Random.Range(2, 10));
+            sP.PlayIdle();
+        }
+    }
+
     public ProjectileMode GetMode()
     {
         return mode;
@@ -101,6 +110,7 @@ public class Projectile : MonoBehaviour
 
     public void SetModeToLaunched()
     {
+        sP.PlaySound(ProjectileSound.Cri);
         mode = ProjectileMode.Launched;
         rb.freezeRotation = false;
         gameObject.layer = LayerMask.NameToLayer("Default");
@@ -109,15 +119,18 @@ public class Projectile : MonoBehaviour
 
     public void SetModeToFollow(Transform target)
     {
+        sP.PlaySound(ProjectileSound.Recup);
         mode = ProjectileMode.Follow;
         rb.freezeRotation = true;
         gameObject.layer = LayerMask.NameToLayer("IgnorePlayer");
         SetTarget(target);
         rb.gravityScale = 0.25f;
+        StartCoroutine(RandomIdleSound());
     }
 
     public void SetModeToPlanted()
     {
+        sP.PlaySound(ProjectileSound.Planter);
         mode = ProjectileMode.Planted;
         rb.freezeRotation = true;
         rb.velocity = new Vector2(0,0);
@@ -132,6 +145,13 @@ public class Projectile : MonoBehaviour
     public bool OnGrounded()
     {
         return Physics2D.CircleCast(transform.position + GetComponent<Collider2D>().bounds.extents.y * Vector3.down, groundDist, Vector2.zero, 0, groundLayer);
+    }
+
+    public Vector3 GetVel()
+    {
+        if (target != null && Vector3.Distance(transform.position, target.position) > radius)
+            return (target.position - transform.position).normalized;
+        return Vector3.zero;
     }
 }
 

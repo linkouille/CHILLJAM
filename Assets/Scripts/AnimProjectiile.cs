@@ -19,7 +19,7 @@ public class AnimProjectiile : MonoBehaviour
     private void Update()
     {
         anim.SetBool("Grounded", p.OnGrounded());
-        anim.SetFloat("XVelocity", p.GetComponent<Rigidbody2D>().velocity.x);
+        anim.SetFloat("XVelocity", p.GetVel().x);
 
         if(p.GetMode() == ProjectileMode.Follow && !setFollow)
         {

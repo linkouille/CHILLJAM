@@ -27,10 +27,6 @@ public class GrowTrigger : MonoBehaviour
     {
         if(potatoesPlaced > 0)
         {
-            for (int i = 0; i < potatoesPlanted.Count; i++)
-            {
-                potatoesPlanted[i].ChangeMode(ProjectileMode.Follow);
-            }
             potatoesPlaced = 0;
             movableObject.reverseMovement();
         }

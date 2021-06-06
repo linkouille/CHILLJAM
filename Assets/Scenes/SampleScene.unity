@@ -134,10 +134,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Projectile
       objectReference: {fileID: 0}
-    - target: {fileID: 149647849834535389, guid: c2a2dc7206877cc40871bc9e6e6b2411, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8252720867534184381, guid: c2a2dc7206877cc40871bc9e6e6b2411, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -182,17 +178,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8348726381615785170, guid: c2a2dc7206877cc40871bc9e6e6b2411, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: a89c386978a03c94ebbe7b1af5a72282, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2a2dc7206877cc40871bc9e6e6b2411, type: 3}
---- !u!212 &124276369 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 8457876284677013643, guid: 769b6033d787bec47816904d4e5388a4, type: 3}
-  m_PrefabInstance: {fileID: 2481239575695386696}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &285682258
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -984,10 +971,6 @@ PrefabInstance:
       propertyPath: cursorTransform
       value: 
       objectReference: {fileID: 1265654536}
-    - target: {fileID: 5287675361379482619, guid: 769b6033d787bec47816904d4e5388a4, type: 3}
-      propertyPath: gunRenderer
-      value: 
-      objectReference: {fileID: 124276369}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 769b6033d787bec47816904d4e5388a4, type: 3}
 --- !u!1001 &5021042684992311262

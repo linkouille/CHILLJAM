@@ -370,6 +370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animG: {fileID: 8646686947865720351}
+  gunRenderer: {fileID: 8457876284677013643}
 --- !u!1 &5774023207331683119
 GameObject:
   m_ObjectHideFlags: 0

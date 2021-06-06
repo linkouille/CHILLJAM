@@ -87,6 +87,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mode: 0
   target: {fileID: 0}
+  follower: {fileID: 0}
   speed: 5
   jumpForce: 10
   radius: 0.7
@@ -95,6 +96,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  firstPickup: 0
 --- !u!95 &8348726381615785170
 Animator:
   serializedVersion: 3

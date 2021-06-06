@@ -25,9 +25,14 @@ public class GrowTrigger : MonoBehaviour
 
     public void recallPotatoes()
     {
-        if(potatoesPlaced > 0)
+        if(potatoesPlaced > 0 && movableObject.moveTimer <= 0)
         {
             potatoesPlaced = 0;
+            for (int i = 0; i < potatoesPlanted.Count; i++)
+            {
+                TuberGun.current.addPotatoesToAmmos(potatoesPlanted[i]);
+            }
+
             movableObject.reverseMovement();
         }
     }

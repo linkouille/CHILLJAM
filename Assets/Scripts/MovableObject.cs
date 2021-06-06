@@ -11,6 +11,7 @@ public class MovableObject : MonoBehaviour
     [Header("Movement properties")]
     public Vector2 movementOffset;
     public float timeToMove;
+    public float moveTimer;
     public GameObject[] plateformes;
 
     private void Awake()
@@ -22,10 +23,19 @@ public class MovableObject : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if(moveTimer > 0)
+        {
+            moveTimer -= Time.deltaTime;
+        }
+    }
+
     public void activateMovement()
     {
-        if(!activated)
+        if(!activated && moveTimer <= 0)
         {
+            moveTimer = timeToMove;
             activated = true;
             for (int i = 0; i < plateformes.Length; i++)
             {
@@ -40,8 +50,9 @@ public class MovableObject : MonoBehaviour
 
     public void reverseMovement()
     {
-        if (activated)
+        if (activated && moveTimer <= 0)
         {
+            moveTimer = timeToMove;
             activated = false;
             for (int i = 0; i < plateformes.Length; i++)
             {

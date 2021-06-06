@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         Projectile[] allProjectiles = FindObjectsOfType<Projectile>();
         for (int i = 0; i < allProjectiles.Length; i++)
         {
-            if(allProjectiles[i].firstPickup && allProjectiles[i].GetMode() != ProjectileMode.Launched && allProjectiles[i].GetMode() != ProjectileMode.Follow)
+            if(allProjectiles[i].firstPickup && allProjectiles[i].GetMode() == ProjectileMode.Idle)
             {
                 TuberGun.current.addPotatoesToAmmos(allProjectiles[i],true);
             }

@@ -75,9 +75,12 @@ public class TuberGun : MonoBehaviour
 
     public void addPotatoesToAmmos(Projectile p)
     {
-        Transform target = (amo.Count == 0) ? transform : amo[amo.Count - 1];
-        amo.Add(p.transform);
-        p.SetModeToFollow(target);
+        if(p != null)
+        {
+            Transform target = (amo.Count == 0) ? transform : amo[amo.Count - 1];
+            amo.Add(p.transform);
+            p.SetModeToFollow(target);
+        }
     }
 
     public bool IsTuberGunLoaded()

@@ -73,16 +73,16 @@ public class TuberGun : MonoBehaviour
             Projectile p = collision.collider.GetComponent<Projectile>();
             if(p.GetMode() == ProjectileMode.Idle)
             {
-                addPotatoesToAmmos(p);
+                addPotatoesToAmmos(p,false);
             }
         }
     }
 
-    public void addPotatoesToAmmos(Projectile p)
+    public void addPotatoesToAmmos(Projectile p, bool recal)
     {
         Transform target = (amo.Count == 0) ? transform : amo[amo.Count - 1];
         amo.Add(p.transform);
-        p.SetModeToFollow(target);
+        p.SetModeToFollow(target,recal);
     }
 
     public bool IsTuberGunLoaded()

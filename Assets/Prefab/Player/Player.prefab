@@ -486,7 +486,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 67f1f4eb6b3042045b59de24ed6ed533, type: 3}
   - {fileID: 8300000, guid: f6b43793cb4056047acc0bf93378a0cb, type: 3}
   step: {fileID: 8300000, guid: ed4f0d0be42e9d142813e72cd370e1f0, type: 3}
-  recall: {fileID: 0}
+  recall: {fileID: 8300000, guid: 47004280e8ab8374e990cb99bb1a233b, type: 3}
 --- !u!1 &5774023207331683119
 GameObject:
   m_ObjectHideFlags: 0

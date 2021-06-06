@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Impulse(Vector3.up, jumpForce);
         }
-        if (Input.GetKeyDown("r"))
+        if (Input.GetKeyDown("r") && OnGrounded())
         {
             recallPotatoes();
         }
@@ -55,8 +55,14 @@ public class PlayerMovement : MonoBehaviour
         {
             if(allProjectiles[i].firstPickup && allProjectiles[i].GetMode() != ProjectileMode.Launched && allProjectiles[i].GetMode() != ProjectileMode.Follow)
             {
-                TuberGun.current.addPotatoesToAmmos(allProjectiles[i]);
+                TuberGun.current.addPotatoesToAmmos(allProjectiles[i],true);
             }
+        }
+
+        GrowTrigger[] growTriggers = FindObjectsOfType<GrowTrigger>();
+        for (int i = 0; i < growTriggers.Length; i++)
+        {
+            growTriggers[i].recallPotatoes();
         }
     }
 
